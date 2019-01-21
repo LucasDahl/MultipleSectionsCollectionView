@@ -51,6 +51,10 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        // Register the cell
+        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: imagesCellId)
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: albumsCellId)
+        
         // Add the subviews
         view.addSubview(backgrounImageView)
         view.addSubview(collectionView)
@@ -83,26 +87,62 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
         // Used of there is one section
         if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for: indexPath) as! ImageCell
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! AlbumCell
         return cell
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if indexPath.section == 1 {
+            return CGSize(width: (view.frame.width / 3) - 16, height: 100)
+        }
+        
+        return CGSize(width: view.frame.width, height: 300)
+        
+    }
     
-}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        if section == 1 {
+            return UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8)
+        }
+        
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        
+    }
+    
+}// End class
 
 //===============
 // MARK: - Cell's
 //===============
 
-class imageCell: UICollectionViewCell {
+class ImageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .red
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+}
+
+
+class AlbumCell: UICollectionViewCell {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .green
     }
     
     required init?(coder aDecoder: NSCoder) {
