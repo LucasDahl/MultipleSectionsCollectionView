@@ -16,6 +16,8 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     
     let imagesCellId = "imagesCellId"
     let albumsCellId = "albumsCellId"
+    let imagesArray = ["image1", "image2", "image3", "image4", "image5"]
+    let albumsArray = ["album1", "album2", "album3", "album4", "album5", "album6", "album7", "album8", "album9"]
     
     let collectionView: UICollectionView = {
         
@@ -76,7 +78,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if section == 1 {
-            return 9
+            return albumsArray.count
         }
         
         return 1
@@ -87,11 +89,13 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
         // Used of there is one section
         if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for: indexPath) as! ImageCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! AlbumCell
+            cell.album = albumsArray[indexPath.item]
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath) as! AlbumCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for: indexPath) as! ImageCell
+        cell.images = imagesArray
         return cell
         
     }
@@ -124,6 +128,12 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
 
 class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var images: [String]? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     // Properties
     let cellId = "cellId"
     
@@ -151,9 +161,6 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     func setup() {
         
-        // Set the color
-        backgroundColor = .red
-        
         // Add the collectionView to the subview
         addSubview(collectionView)
         
@@ -166,6 +173,7 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         
         // register the cell
         collectionView.register(IconsCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.showsHorizontalScrollIndicator = false
         
     }
     
@@ -181,6 +189,9 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         
         // Setup the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! IconsCell
+        if let imagName = images?[indexPath.item] {
+            cell.imageView.image = UIImage(named: imagName)
+        }
         return cell
         
     }
@@ -195,13 +206,32 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     private class IconsCell: UICollectionViewCell {
         
+        let imageView: UIImageView = {
+            
+            let iv = UIImageView()
+            iv.contentMode = .scaleAspectFill
+            iv.clipsToBounds = true
+            iv.layer.cornerRadius = 15
+            return iv
+            
+        }()
+        
         override init(frame: CGRect) {
             super.init(frame: frame)
-            backgroundColor = .blue
+            setup()
         }
         
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
+        }
+        
+        // Methods
+        func setup() {
+            
+            setCellShadow()
+            addSubview(imageView)
+            imageView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+            
         }
         
         
@@ -212,15 +242,41 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
 
 class AlbumCell: UICollectionViewCell {
     
+    var album: String? {
+        didSet {
+            if let imageName = album {
+                imageView.image = UIImage(named: imageName)
+            }
+        }
+    }
+    
+    let imageView: UIImageView = {
+        
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        iv.layer.cornerRadius = 15
+        return iv
+        
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setup() {
+        
+        setCellShadow()
+        addSubview(imageView)
+        imageView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        
+    }
     
     
 }
