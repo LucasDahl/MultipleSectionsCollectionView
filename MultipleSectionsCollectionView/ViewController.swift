@@ -8,11 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     //===================
     // MARK: - Properties
     //===================
+    
+    let imagesCellId = "imagesCellId"
+    let albumsCellId = "albumsCellId"
+    
+    let collectionView: UICollectionView = {
+        
+        //Setup th elayout
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 16
+        layout.scrollDirection = .vertical
+        
+        // Add the layout to the viewController
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .clear
+        return cv
+        
+    }()
     
     let backgrounImageView: UIImageView = {
         let iv = UIImageView()
@@ -29,9 +46,69 @@ class ViewController: UIViewController {
     
     // Setting up the view
     func setupViews() {
-        view.addSubview(backgrounImageView)
         
+        // Set the delegate and datasource
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        // Add the subviews
+        view.addSubview(backgrounImageView)
+        view.addSubview(collectionView)
+        
+        // Set the anchors
         backgrounImageView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        collectionView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        
     }
+    
+    //=======================
+    // MARK: - DollectionView
+    //=======================
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if section == 1 {
+            return 9
+        }
+        
+        return 1
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // Used of there is one section
+        if indexPath.section == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCellId, for: indexPath)
+            return cell
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumsCellId, for: indexPath)
+        return cell
+        
+    }
+    
+    
+}
+
+//===============
+// MARK: - Cell's
+//===============
+
+class imageCell: UICollectionViewCell {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
 }
