@@ -66,7 +66,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     //=======================
-    // MARK: - DollectionView
+    // MARK: - CollectionView
     //=======================
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -122,18 +122,90 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
 // MARK: - Cell's
 //===============
 
-class ImageCell: UICollectionViewCell {
+class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    // Properties
+    let cellId = "cellId"
+    
+    let collectionView: UICollectionView = {
+        
+        // Setup the layout
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 30
+        layout.scrollDirection = .horizontal
+        // Setup the collectionView by adding the layout
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .clear
+        return cv
+        
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setup() {
+        
+        // Set the color
+        backgroundColor = .red
+        
+        // Add the collectionView to the subview
+        addSubview(collectionView)
+        
+        // Set the anchors
+        collectionView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        
+        // Set the datasource and datasource
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        // register the cell
+        collectionView.register(IconsCell.self, forCellWithReuseIdentifier: cellId)
+        
+    }
     
+    //========================
+    // MARK: - CollectionViews
+    //========================
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // Setup the cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! IconsCell
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: frame.height - 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+    }
+    
+    private class IconsCell: UICollectionViewCell {
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            backgroundColor = .blue
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        
+    }
     
 }
 
