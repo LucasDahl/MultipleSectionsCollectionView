@@ -1,5 +1,5 @@
 //
-//  redViewController.swift
+//  GrayViewController.swift
 //  MultipleSectionsCollectionView
 //
 //  Created by Lucas Dahl on 1/22/19.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class RedViewController: UIViewController {
+class GrayViewController: UIViewController {
     
     //====================
     // MARK: - UI Elements
     //====================
     
     let dismissButton: UIButton = {
-       
+        
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.blue
         button.setTitle("Dismiss", for: UIControl.State())
@@ -32,8 +32,8 @@ class RedViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup the viewController
-        view.backgroundColor = UIColor.red
-        view.restorationIdentifier = "image1"
+        view.backgroundColor = UIColor.gray
+        view.restorationIdentifier = "album8"
         
         // Add the button to the subview
         view.addSubview(dismissButton)

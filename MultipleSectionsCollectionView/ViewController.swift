@@ -18,6 +18,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     let albumsCellId = "albumsCellId"
     let imagesArray = ["image1", "image2", "image3", "image4", "image5"]
     let albumsArray = ["album1", "album2", "album3", "album4", "album5", "album6", "album7", "album8", "album9"]
+    let vcArray = [RedViewController(), OrangeViewController(), YellowViewController(), GreenViewController(), BlueViewController(), PurpleViewController(), LightGrayViewController(), GrayViewController(), BlackViewController()]
     
     let collectionView: UICollectionView = {
         
@@ -121,7 +122,8 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        present(RedViewController(), animated: true, completion: nil)
+        let vcName = vcArray[indexPath.row]
+        present(vcName, animated: true, completion: nil)
     }
     
 }// End class
