@@ -21,6 +21,8 @@ class RedViewController: UIViewController {
         button.setTitle("Dismiss", for: UIControl.State())
         button.setTitleColor(UIColor.white, for: UIControl.State())
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 15
+        button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         return button
         
@@ -55,8 +57,8 @@ class RedViewController: UIViewController {
         // Add constraints
         dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        dismissButton.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -5).isActive = true
-        dismissButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
     }
     
