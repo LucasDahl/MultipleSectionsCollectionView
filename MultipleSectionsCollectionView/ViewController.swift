@@ -120,6 +120,10 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        present(RedViewController(), animated: true, completion: nil)
+    }
+    
 }// End class
 
 //===============
