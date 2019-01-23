@@ -132,6 +132,18 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
             present(OrangeViewController(), animated: true, completion: nil)
         case 2:
             present(YellowViewController(), animated: true, completion: nil)
+        case 3:
+            present(GreenViewController(), animated: true, completion: nil)
+        case 4:
+            present(BlueViewController(), animated: true, completion: nil)
+        case 5:
+            present(PurpleViewController(), animated: true, completion: nil)
+        case 6:
+            present(LightGrayViewController(), animated: true, completion: nil)
+        case 7:
+            present(GrayViewController(), animated: true, completion: nil)
+        case 8:
+            present(BlackViewController(), animated: true, completion: nil)
         default:
             return
         }
