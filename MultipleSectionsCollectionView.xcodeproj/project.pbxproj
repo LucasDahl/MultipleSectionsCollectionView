@@ -87,10 +87,10 @@
 		95C4E3A121F60F1A0022EB24 /* MultipleSectionsCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				95C4E3A221F60F1A0022EB24 /* AppDelegate.swift */,
+				95C4E3B421F60FAC0022EB24 /* Extensions.swift */,
 				956F907521F90C6E000A0E67 /* Cell */,
 				95D9A96E21F7ADAB00E244AB /* Controllers */,
-				95C4E3B421F60FAC0022EB24 /* Extensions.swift */,
-				95C4E3A221F60F1A0022EB24 /* AppDelegate.swift */,
 				95C4E3A621F60F1A0022EB24 /* Main.storyboard */,
 				95C4E3A921F60F1B0022EB24 /* Assets.xcassets */,
 				95C4E3AB21F60F1B0022EB24 /* LaunchScreen.storyboard */,

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
-        // USed to make a viewController progrmatically
+        // Used to make a viewController progrmatically
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
