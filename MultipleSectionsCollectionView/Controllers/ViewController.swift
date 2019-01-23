@@ -124,8 +124,10 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
- 
+        
+        // A switch case will help each viewController deinit to avoide retain cycles.
         switch indexPath.row {
+            
         case 0:
             present(RedViewController(), animated: true, completion: nil)
         case 1:
@@ -146,6 +148,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
             present(BlackViewController(), animated: true, completion: nil)
         default:
             return
+            
         }
         
     }
