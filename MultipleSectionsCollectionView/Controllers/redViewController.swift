@@ -1,8 +1,8 @@
 //
-//  redViewController.swift
+//  RedViewController.swift
 //  MultipleSectionsCollectionView
 //
-//  Created by Lucas Dahl on 1/22/19.
+//  Created by Lucas Dahl on 1/23/19.
 //  Copyright © 2019 Lucas Dahl. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ class RedViewController: UIViewController {
     //====================
     
     let dismissButton: UIButton = {
-       
+        
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.blue
         button.setTitle("Dismiss", for: UIControl.State())
