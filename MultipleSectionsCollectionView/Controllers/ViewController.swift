@@ -18,7 +18,6 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     let albumsCellId = "albumsCellId"
     let imagesArray = ["image1", "image2", "image3", "image4", "image5"]
     let albumsArray = ["album1", "album2", "album3", "album4", "album5", "album6", "album7", "album8", "album9"]
-    let vcArray = [RedViewController(), OrangeViewController(), YellowViewController(), GreenViewController(), BlueViewController(), PurpleViewController(), LightGrayViewController(), GrayViewController(), BlackViewController()]
     
     let collectionView: UICollectionView = {
         
@@ -35,10 +34,12 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }()
     
     let backgrounImageView: UIImageView = {
+        
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.image = UIImage(named: "bg")
         return iv
+        
     }()
     
     
@@ -46,6 +47,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         super.viewDidLoad()
         setupViews()
     }
+    
     
     // Setting up the view
     func setupViews() {
@@ -122,8 +124,18 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let vcName = vcArray[indexPath.row]
-        present(vcName, animated: true, completion: nil)
+ 
+        switch indexPath.row {
+        case 0:
+            present(RedViewController(), animated: true, completion: nil)
+        case 1:
+            present(OrangeViewController(), animated: true, completion: nil)
+        case 2:
+            present(YellowViewController(), animated: true, completion: nil)
+        default:
+            return
+        }
+        
     }
     
 }// End class
