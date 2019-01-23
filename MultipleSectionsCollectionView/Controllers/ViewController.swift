@@ -122,7 +122,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vcName = vcArray[indexPath.row]
+       let vcName = vcArray[indexPath.row]
         present(vcName, animated: true, completion: nil)
     }
     

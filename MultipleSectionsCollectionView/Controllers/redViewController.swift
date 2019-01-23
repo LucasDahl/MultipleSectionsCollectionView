@@ -24,6 +24,22 @@ class RedViewController: UIViewController {
         button.layer.cornerRadius = 15
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+        button.alpha = 0
+        button.isEnabled = false
+        return button
+        
+    }()
+    
+    let hideButton: UIButton = {
+        
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.blue
+        button.setTitle("Hide", for: UIControl.State())
+        button.setTitleColor(UIColor.white, for: UIControl.State())
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 15
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(handleHide), for: .touchUpInside)
         return button
         
     }()
@@ -37,7 +53,10 @@ class RedViewController: UIViewController {
         
         // Add the button to the subview
         view.addSubview(dismissButton)
+        view.addSubview(hideButton)
         
+        // Setup the buttons
+        setupHideButton()
         setupDismissButton()
         
         
@@ -62,6 +81,16 @@ class RedViewController: UIViewController {
         
     }
     
+    func setupHideButton() {
+        
+        // Add constraints
+        hideButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        hideButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
+        hideButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        hideButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
+    }
+    
     //================
     // MARK: - Actions
     //================
@@ -70,6 +99,24 @@ class RedViewController: UIViewController {
         
         // Dismiss the viewController
         dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @objc func handleHide() {
+        
+        if dismissButton.alpha == 0 {
+            
+            dismissButton.alpha = 1
+            dismissButton.isEnabled = true
+            
+        } else {
+            
+            dismissButton.alpha = 0
+            dismissButton.isEnabled = false
+            
+            
+        }
+        
         
     }
     
