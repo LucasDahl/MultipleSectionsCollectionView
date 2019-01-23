@@ -86,6 +86,10 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         return UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: - Add more viewControllers
+    }
+    
     private class IconsCell: UICollectionViewCell {
         
         let imageView: UIImageView = {
