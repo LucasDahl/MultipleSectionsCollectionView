@@ -45,12 +45,13 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     let settingsButton: UIButton = {
         
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        button.setTitle("Settings", for: UIControl.State())
-        button.setTitleColor(UIColor.white, for: UIControl.State())
+        let origImage = UIImage(named: "3dot");
+        let tintedImage = origImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        button.setImage(tintedImage, for: .normal)
+        button.tintColor = UIColor.black
+        button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
+        button.adjustsImageSizeForAccessibilityContentSizeCategory = true
         button.addTarget(self, action: #selector(handleShowSettings), for: .touchUpInside)
         return button
         
@@ -81,7 +82,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
         // Set the anchors
         backgrounImageView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        collectionView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        collectionView.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 50, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         
         // Setup the stackView
         let stackView = UIStackView(arrangedSubviews: [settingsButton])
@@ -90,10 +91,11 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         // Add the stackview to the subview
-        view.addSubview(stackView)
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        view.addSubview(settingsButton)
+        settingsButton.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        settingsButton.bottomAnchor.constraint(equalTo: view.safeTopAnchor, constant: 20).isActive = true
+        settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
     }
     
