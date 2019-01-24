@@ -45,7 +45,9 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     let settingsButton: UIButton = {
         
         let button = UIButton(type: .system)
-        let origImage = UIImage(named: "3dot");
+        let origImage = UIImage(named: "3dot")
+        
+        // This tints the image
         let tintedImage = origImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         button.setImage(tintedImage, for: .normal)
         button.tintColor = UIColor.black
@@ -184,7 +186,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     
     @objc func handleShowSettings() {
         
-        present(SettingsViewController(), animated: true, completion: nil)
+        present(SettingsViewController(), animated: false, completion: nil)
         
     }
     
