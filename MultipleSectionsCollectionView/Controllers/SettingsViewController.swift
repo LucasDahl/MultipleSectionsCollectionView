@@ -117,4 +117,9 @@ class SettingsViewController: UIViewController {
         
     }
     
+    // Ensure there are no retain cycles
+    deinit {
+        print("Reclaiming memory")
+    }
+    
 }
