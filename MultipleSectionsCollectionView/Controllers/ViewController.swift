@@ -97,7 +97,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         settingsButton.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         settingsButton.bottomAnchor.constraint(equalTo: view.safeTopAnchor, constant: 20).isActive = true
         settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
     }
     
