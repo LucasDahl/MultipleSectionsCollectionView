@@ -87,10 +87,8 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         let stackView = UIStackView(arrangedSubviews: [settingsButton])
         stackView.distribution = .fillEqually
         stackView.spacing = 8
-        
-        // This is needed to allow auto-layout constraints through code usable
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         // Add the stackview to the subview
         view.addSubview(stackView)
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
