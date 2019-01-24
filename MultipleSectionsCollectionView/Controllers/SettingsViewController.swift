@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
         // Set the color
         view.backgroundColor = UIColor.white
         
-        // Call the methods.
+        // Call the methods
         setupUIElements()
         
     }
