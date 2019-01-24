@@ -51,7 +51,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 15
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(handleAlert), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowSettings), for: .touchUpInside)
         return button
         
     }()
@@ -180,44 +180,12 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
     }
     
-    //===============
-    // MARK: - Alerts
-    //===============
-    
-    @objc func handleAlert() {
+    @objc func handleShowSettings() {
         
-        // Make the alert
-        let alertController = UIAlertController (title: "Do you want to get the most out of this app?", message: "You will need to go to your phones settings and turn on guided access.", preferredStyle: .alert)
-        
-        // Set the alerts action
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
-            
-            // Make sure the settings url is not nil
-            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                return
-            }
-            
-            // Check if the settingsUrl can be opened.
-            if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                    print("Settings opened: \(success)") // Prints true
-                })
-            }
-        }
-        
-        // Add the action to the alert
-        alertController.addAction(settingsAction)
-        
-        // Make the cancel action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
-        // Add the cancel action to the the alert controller
-        alertController.addAction(cancelAction)
-        
-        // Present the alert
-        present(alertController, animated: true, completion: nil)
+        present(SettingsViewController(), animated: true, completion: nil)
         
     }
+    
     
 }// End class
 
