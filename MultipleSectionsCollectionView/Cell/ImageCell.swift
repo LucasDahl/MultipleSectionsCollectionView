@@ -87,7 +87,7 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO: - Add more viewControllers and images
+        //TODO: - Add more SKScene files for the top cells for the Albumcells.
     }
     
     private class IconsCell: UICollectionViewCell {
