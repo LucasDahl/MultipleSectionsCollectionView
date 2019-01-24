@@ -13,13 +13,21 @@ class SettingsViewController: UIViewController {
     let settingsButton: UIButton = {
         
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.blue
         button.setTitle("Settings", for: UIControl.State())
-        button.setTitleColor(UIColor.white, for: UIControl.State())
+        button.setTitleColor(UIColor.black, for: UIControl.State())
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(handleAlert), for: .touchUpInside)
+        return button
+        
+    }()
+    
+    let dismissButton: UIButton = {
+       
+        let button = UIButton(type: .system)
+        button.setTitle("Dismiss", for: UIControl.State())
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         return button
         
     }()
@@ -44,12 +52,29 @@ class SettingsViewController: UIViewController {
         
         // Add the button to the subview
         view.addSubview(settingsButton)
+        view.addSubview(dismissButton)
         
         // Constraints
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
         settingsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+
+        
+        dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
+    }
+    
+    //================
+    // MARK: - Actions
+    //================
+    
+    @objc func handleDismiss() {
+        
+        dismiss(animated: true, completion: nil)
         
     }
     
