@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UINavigationController {
     
     let settingsButton: UIButton = {
         
@@ -38,13 +38,8 @@ class SettingsViewController: UITableViewController {
         
         // Set the color
         view.backgroundColor = UIColor.white
-        
-        
-        // Delegates and datasource
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        navigationItem.title = "Settings"
+        //TODO: not showing up
+        self.navigationItem.title = "Settings"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
         
         // Call the methods

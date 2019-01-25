@@ -19,6 +19,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     let imagesArray = ["image1", "image2", "image3", "image4", "image5"]
     let albumsArray = ["album1", "album2", "album3", "album4", "album5", "album6", "album7", "album8", "album9"]
     
+    
     let collectionView: UICollectionView = {
         
         //Setup th elayout
@@ -185,7 +186,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     @objc func handleShowSettings() {
-        
+        //TODO: doesnt show navigation controller.
         present(SettingsViewController(), animated: false, completion: nil)
         
     }
