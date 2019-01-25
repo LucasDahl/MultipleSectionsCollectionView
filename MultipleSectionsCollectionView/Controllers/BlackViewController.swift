@@ -35,12 +35,18 @@ class BlackViewController: UIViewController {
         view.backgroundColor = UIColor.black
         view.restorationIdentifier = "album9"
         
+        
         // Add the button to the subview
         view.addSubview(dismissButton)
         
         setupDismissButton()
         
         
+    }
+    
+    // Change the color of the statusBar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     // Make sure nothing is caught in a retain cycle
