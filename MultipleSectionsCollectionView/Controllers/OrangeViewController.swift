@@ -17,12 +17,15 @@ class OrangeViewController: UIViewController {
     let dismissButton: UIButton = {
         
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.blue
-        button.setTitle("Dismiss", for: UIControl.State())
+        let originalImage = UIImage(named: "home")
+        
+        // This tints the image
+        let tintedImage = originalImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        button.setImage(tintedImage, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = UIColor.black
         button.setTitleColor(UIColor.white, for: UIControl.State())
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         return button
         
