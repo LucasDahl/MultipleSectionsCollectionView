@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainVC = ViewController()
         window?.rootViewController = mainVC
         
+        //window?.rootViewController = UINavigationController(rootViewController: SettingsViewController())
+        
         return true
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UITableViewController {
     
     let settingsButton: UIButton = {
         
@@ -39,8 +39,16 @@ class SettingsViewController: UIViewController {
         // Set the color
         view.backgroundColor = UIColor.white
         
+        
+        // Delegates and datasource
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        navigationItem.title = "Settings"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
+        
         // Call the methods
-        setupUIElements()
+        //setupUIElements()
         
     }
     
@@ -53,14 +61,14 @@ class SettingsViewController: UIViewController {
         // Add the button to the subview
         view.addSubview(settingsButton)
         view.addSubview(dismissButton)
-        
+
         // Constraints
         settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
         settingsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
-        
+
         dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -121,5 +129,13 @@ class SettingsViewController: UIViewController {
     deinit {
         print("Reclaiming memory")
     }
+    
+    //==================
+    // MARK: - TableView
+    //==================
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        <#code#>
+//    }
     
 }
