@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: - Should be a tableView with a navigation controller
 class SettingsViewController: UINavigationController {
     
     let settingsButton: UIButton = {

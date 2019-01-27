@@ -186,7 +186,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     @objc func handleShowSettings() {
-        //TODO: doesnt show navigation controller.
+        //TODO: doesnt show navigation controller with a tablwview embedded in it.
         present(SettingsViewController(), animated: false, completion: nil)
         
     }
