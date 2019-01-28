@@ -7,8 +7,8 @@
 //
 
 import UIKit
-// MARK: - Should be a tableView with a navigation controller
-class SettingsViewController: UINavigationController {
+
+class SettingsViewController: UITableViewController {
     
     let settingsButton: UIButton = {
         
@@ -32,18 +32,20 @@ class SettingsViewController: UINavigationController {
         
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the color
         view.backgroundColor = UIColor.white
         //TODO: not showing up
-        self.navigationItem.title = "Settings"
+        navigationItem.title = "Settings"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
+        tableView.dataSource = self
+        tableView.delegate = self
+        navigationController?.isNavigationBarHidden = false
         
         // Call the methods
-        //setupUIElements()
+        setupUIElements()
         
     }
     
@@ -54,20 +56,21 @@ class SettingsViewController: UINavigationController {
     func setupUIElements() {
         
         // Add the button to the subview
-        view.addSubview(settingsButton)
-        view.addSubview(dismissButton)
+//        view.addSubview(settingsButton)
+//        view.addSubview(dismissButton)
 
         // Constraints
-        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-
-
-        dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+//        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
+//        settingsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+//
+//
+//        dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
         
     }
     
@@ -77,7 +80,7 @@ class SettingsViewController: UINavigationController {
     
     @objc func handleDismiss() {
         
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.dismiss(animated: false, completion: nil)
         
     }
     

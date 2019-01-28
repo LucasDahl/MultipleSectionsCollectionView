@@ -16,14 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
+        let mainVC = ViewController()
+        let navigationController = UINavigationController(rootViewController: mainVC)
+        
         // Used to make a viewController progrmatically
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let mainVC = ViewController()
-        window?.rootViewController = mainVC
+        window?.rootViewController = navigationController
         
-        //window?.rootViewController = UINavigationController(rootViewController: SettingsViewController())
+        //window?.rootViewController = UINavigationController(rootViewController: ViewController())
         
         return true
     }

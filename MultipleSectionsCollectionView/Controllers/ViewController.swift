@@ -64,6 +64,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        navigationController?.isNavigationBarHidden = true
     }
     
     
@@ -187,7 +188,8 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     
     @objc func handleShowSettings() {
         //TODO: doesnt show navigation controller with a tablwview embedded in it.
-        present(SettingsViewController(), animated: false, completion: nil)
+        //present(SettingsViewController(), animated: false, completion: nil)
+        navigationController?.pushViewController(SettingsViewController(), animated: true)
         
     }
     
