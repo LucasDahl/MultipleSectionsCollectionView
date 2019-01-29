@@ -67,7 +67,6 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
