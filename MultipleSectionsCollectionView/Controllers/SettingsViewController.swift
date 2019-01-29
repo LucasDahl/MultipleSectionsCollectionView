@@ -112,10 +112,12 @@ class SettingsViewController: UITableViewController {
     // MARK: - TableView
     //==================
     
+    // Sets the number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return names.count
+        return 2
     }
     
+    // Sets the header label
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let label = UILabel()
@@ -125,15 +127,19 @@ class SettingsViewController: UITableViewController {
         
     }
     
+    // Sets the number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
     }
     
+    // Sets the tableView data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let name = self.names[indexPath.row]
         cell.textLabel?.text = name
         return cell
+        
     }
     
-}
+} // End class
