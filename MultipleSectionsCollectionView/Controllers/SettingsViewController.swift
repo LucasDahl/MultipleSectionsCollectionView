@@ -10,8 +10,22 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
-    let names = ["Amy", "Bill", "Zack", "Steve"]
+    // Properties
     let cellId = "cellId12345"
+    let names = ["Amy", "Bill", "Zack", "Steve", "Jill", "Lucas", "Link"]
+    let cNames = ["Carl", "Chris", "Christina", "Cameron"]
+    let dNames = ["David", "Dan"]
+    let twoDimensionalArray = [
+        ["Amy", "Bill", "Zack", "Steve", "Jill", "Lucas", "Link"],
+        ["Carl", "Chris", "Christina", "Cameron"],
+        ["David", "Dan"],
+        ["Patrick", "Patty"]
+    ]
+    
+    
+    //====================
+    // MARK: - UI Elements
+    //====================
     
     let settingsButton: UIButton = {
         
@@ -114,7 +128,7 @@ class SettingsViewController: UITableViewController {
     
     // Sets the number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return twoDimensionalArray.count
     }
     
     // Sets the header label
@@ -129,14 +143,22 @@ class SettingsViewController: UITableViewController {
     
     // Sets the number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        
+        return twoDimensionalArray[section].count
+        
+//        if section == 0 {
+//            return names.count
+//        }
+//        return cNames.count
     }
     
     // Sets the tableView data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        let name = self.names[indexPath.row]
+        //let name = self.names[indexPath.row]
+//        let name = indexPath.section == 0 ? names[indexPath.row] : cNames[indexPath.row]
+        let name = twoDimensionalArray[indexPath.section][indexPath.row]
         cell.textLabel?.text = name
         return cell
         
