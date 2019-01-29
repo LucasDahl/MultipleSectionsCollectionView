@@ -71,7 +71,6 @@ class SettingsViewController: UITableViewController {
 //        dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
 //        dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
-        
     }
     
     //================
@@ -80,7 +79,7 @@ class SettingsViewController: UITableViewController {
     
     @objc func handleDismiss() {
         
-        self.navigationController?.dismiss(animated: false, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
         
     }
     
