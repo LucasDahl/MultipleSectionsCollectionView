@@ -35,41 +35,16 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the color
+        // Setup the navigation item
         view.backgroundColor = UIColor.white
-        //TODO: not showing up
         navigationItem.title = "Settings"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
+        
+        // Datasource and delegate
         tableView.dataSource = self
         tableView.delegate = self
         navigationController?.isNavigationBarHidden = false
-        
-        // Call the methods
-        setupUIElements()
-        
-    }
-    
-    //================
-    // MARK: - Methods
-    //================
-    
-    func setupUIElements() {
-        
-        // Add the button to the subview
-//        view.addSubview(settingsButton)
-//        view.addSubview(dismissButton)
-
-        // Constraints
-//        settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        settingsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
-//        settingsButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-//
-//
-//        dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//        dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+ 
         
     }
     
