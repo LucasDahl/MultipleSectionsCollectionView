@@ -60,6 +60,9 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
     }()
     
+    //=====================
+    // MARK: - View methods
+    //=====================
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +70,13 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    //================
+    // MARK: - Methods
+    //================
     
     // Setting up the view
     func setupViews() {
