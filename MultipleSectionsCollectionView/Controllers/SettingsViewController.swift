@@ -10,6 +10,9 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
+    let names = ["Amy", "Bill", "Zack", "Steve"]
+    let cellId = "cellId12345"
+    
     let settingsButton: UIButton = {
         
         let button = UIButton(type: .system)
@@ -44,6 +47,9 @@ class SettingsViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         navigationController?.isNavigationBarHidden = false
+        
+        // Register the cell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
  
         
     }
@@ -106,8 +112,28 @@ class SettingsViewController: UITableViewController {
     // MARK: - TableView
     //==================
     
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        <#code#>
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return names.count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let label = UILabel()
+        label.text = "Header"
+        label.backgroundColor = UIColor.lightGray
+        return label
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return names.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let name = self.names[indexPath.row]
+        cell.textLabel?.text = name
+        return cell
+    }
     
 }
