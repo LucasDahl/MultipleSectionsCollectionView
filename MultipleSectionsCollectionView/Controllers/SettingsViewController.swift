@@ -167,7 +167,7 @@ class SettingsViewController: UITableViewController {
     
     // Sets the tableView data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //TODO style the cell, may need a custom cell class
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         // Setup the image
         let imageName = "image1"
