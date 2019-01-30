@@ -10,16 +10,16 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     
-    // Properties
+    //===================
+    // MARK: - Properties
+    //===================
+    
     let cellId = "cellId12345"
-    let names = ["Amy", "Bill", "Zack", "Steve", "Jill", "Lucas", "Link"]
-    let cNames = ["Carl", "Chris", "Christina", "Cameron"]
-    let dNames = ["David", "Dan"]
     let twoDimensionalArray = [
-        ["Amy", "Bill", "Zack", "Steve", "Jill", "Lucas", "Link"],
-        ["Carl", "Chris", "Christina", "Cameron"],
-        ["David", "Dan"],
-        ["Patrick", "Patty"]
+        ["Purchase to Remove adds", "Restore Purchases"],
+        ["FeedBack", "Write a Review"],
+        ["Message", "Email"],
+        ["More Share Options", "More Apps"]
     ]
     
     
@@ -169,8 +169,6 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        //let name = self.names[indexPath.row]
-//        let name = indexPath.section == 0 ? names[indexPath.row] : cNames[indexPath.row]
         let name = twoDimensionalArray[indexPath.section][indexPath.row]
         cell.textLabel?.text = name
         return cell
