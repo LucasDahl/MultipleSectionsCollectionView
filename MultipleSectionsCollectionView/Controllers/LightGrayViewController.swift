@@ -56,7 +56,7 @@ class LightGrayViewController: UIViewController {
         
         // Add constraints
         dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dismissButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        dismissButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant:  -50).isActive = true
         dismissButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         dismissButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
