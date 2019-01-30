@@ -169,6 +169,18 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        // Setup the image
+        let imageName = "image1"
+        let image1 = UIImage(named: imageName)
+        tableView.rowHeight = 50
+        
+        let imageView = UIImageView(frame: CGRect(x: 50, y: 0, width: 50, height: 50))
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 25// Corner radius should be half of the height and width.
+        imageView.image = image1
+        cell.addSubview(imageView)
+        
         let name = twoDimensionalArray[indexPath.section][indexPath.row]
         cell.textLabel?.text = name
         return cell
