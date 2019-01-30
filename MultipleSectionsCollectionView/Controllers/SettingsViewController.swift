@@ -134,9 +134,26 @@ class SettingsViewController: UITableViewController {
     // Sets the header label
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        // Create the label
         let label = UILabel()
-        label.text = "Header"
-        label.backgroundColor = UIColor.lightGray
+        label.textColor = UIColor.gray
+        label.backgroundColor = UIColor.init(red: 221/255.0, green: 219/255.0, blue: 221/255.0, alpha: 1.0)
+        
+        // Set the label
+        switch section {
+            
+        case 0:
+            label.text = "Purchase"
+        case 1:
+            label.text = "Help"
+        case 2:
+            label.text = "Share"
+        case 3:
+            label.text = "More"
+        default:
+            label.text = ""
+        }
+        
         return label
         
     }
@@ -146,10 +163,6 @@ class SettingsViewController: UITableViewController {
         
         return twoDimensionalArray[section].count
         
-//        if section == 0 {
-//            return names.count
-//        }
-//        return cNames.count
     }
     
     // Sets the tableView data
