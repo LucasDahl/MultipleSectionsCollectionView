@@ -173,7 +173,7 @@ class SettingsViewController: UITableViewController {
         let imageName = "image1"
         let image1 = UIImage(named: imageName)
         tableView.rowHeight = 60
-        
+        // TODO make methods that can be called.
         let viewContainer = UIView()
         viewContainer.backgroundColor = UIColor.red
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
