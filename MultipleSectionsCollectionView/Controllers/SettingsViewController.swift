@@ -198,8 +198,6 @@ class SettingsViewController: UITableViewController {
         labelText.heightAnchor.constraint(equalToConstant: 50).isActive = true
         labelText.widthAnchor.constraint(equalToConstant: 300).isActive = true
         
-//        let name = twoDimensionalArray[indexPath.section][indexPath.row]
-//        cell.textLabel?.text = name
         labelText.text = twoDimensionalArray[indexPath.section][indexPath.row]
         
         return cell
