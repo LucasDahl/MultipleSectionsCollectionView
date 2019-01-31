@@ -174,16 +174,34 @@ class SettingsViewController: UITableViewController {
         let image1 = UIImage(named: imageName)
         tableView.rowHeight = 50
         
-        let imageView = UIImageView(frame: CGRect(x: 20, y: 0, width: 50, height: 50))
-        imageView.layer.borderWidth = 1.0
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 25// Corner radius should be half of the height and width.
-        imageView.image = image1
-        cell.addSubview(imageView)
+        let viewContainer = UIView()
+        viewContainer.backgroundColor = UIColor.red
+        viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        cell.addSubview(viewContainer)
+        let labelText = UILabel()
+        labelText.translatesAutoresizingMaskIntoConstraints = false
+        viewContainer.addSubview(labelText)
         
-        let name = twoDimensionalArray[indexPath.section][indexPath.row]
         
-        cell.textLabel?.text = name
+//        let imageView = UIImageView(frame: CGRect(x: 20, y: 0, width: 50, height: 50))
+//        imageView.layer.borderWidth = 1.0
+//        imageView.layer.masksToBounds = true
+//        imageView.layer.cornerRadius = 25// Corner radius should be half of the height and width.
+//        imageView.image = image1
+//        cell.addSubview(imageView) change to containerView addsubview
+        viewContainer.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+        viewContainer.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+        viewContainer.heightAnchor.constraint(equalTo: cell.heightAnchor).isActive = true
+        viewContainer.widthAnchor.constraint(equalTo: cell.widthAnchor).isActive = true
+        labelText.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor).isActive = true
+        labelText.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
+        labelText.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        labelText.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        
+//        let name = twoDimensionalArray[indexPath.section][indexPath.row]
+//        cell.textLabel?.text = name
+        labelText.text = twoDimensionalArray[indexPath.section][indexPath.row]
+        
         return cell
         
     }
