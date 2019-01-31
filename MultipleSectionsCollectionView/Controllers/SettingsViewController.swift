@@ -168,21 +168,27 @@ class SettingsViewController: UITableViewController {
     // Sets the tableView data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO style the cell, may need a custom cell class
+        // Setup the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
         // Setup the image
         let imageName = "image1"
         let image1 = UIImage(named: imageName)
         tableView.rowHeight = 60
-        // TODO make methods that can be called.
+        
+        // Setup the view container
         let viewContainer = UIView()
         viewContainer.backgroundColor = UIColor.red
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         cell.addSubview(viewContainer)
+        
+        // Setup the label
         let labelText = UILabel()
         labelText.translatesAutoresizingMaskIntoConstraints = false
         viewContainer.addSubview(labelText)
+        labelText.text = twoDimensionalArray[indexPath.section][indexPath.row]
         
-        
+        // Setup the imageView
         let imageView = UIImageView(frame: CGRect(x: 20, y: 5, width: 50, height: 50))
         imageView.layer.borderWidth = 1.0
         imageView.layer.masksToBounds = true
@@ -190,16 +196,15 @@ class SettingsViewController: UITableViewController {
         imageView.image = image1
         viewContainer.addSubview(imageView)
         
+        // Setup the constraints
         viewContainer.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
         viewContainer.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         viewContainer.heightAnchor.constraint(equalTo: cell.heightAnchor).isActive = true
         viewContainer.widthAnchor.constraint(equalTo: cell.widthAnchor).isActive = true
-        labelText.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor, constant: 50).isActive = true
+        labelText.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor, constant: 25).isActive = true
         labelText.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
         labelText.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        labelText.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        
-        labelText.text = twoDimensionalArray[indexPath.section][indexPath.row]
+        imageView.centerXAnchor.constraint(equalTo: labelText.leadingAnchor, constant: -35).isActive = true
         
         return cell
         
