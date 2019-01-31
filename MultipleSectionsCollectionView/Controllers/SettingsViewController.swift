@@ -201,7 +201,7 @@ class SettingsViewController: UITableViewController {
             case 1:
                 imageView.image = UIImage(named: "restore")
             default:
-                imageView.image = UIImage(named: "image1")
+                imageView.image = UIImage(named: "image1")// Replace with no image
             }
             
         case 1:
@@ -211,7 +211,7 @@ class SettingsViewController: UITableViewController {
             case 1:
                 imageView.image = UIImage(named: "review")
             default:
-                imageView.image = UIImage(named: "image1")
+                imageView.image = UIImage(named: "image1")// Replace with no image
                 
             }
         case 2:
@@ -221,7 +221,7 @@ class SettingsViewController: UITableViewController {
             case 1:
                 imageView.image = UIImage(named: "mail")
             default:
-                imageView.image = UIImage(named: "image1")
+                imageView.image = UIImage(named: "image1")// Replace with no image
                 
             }
         case 3:
@@ -231,11 +231,11 @@ class SettingsViewController: UITableViewController {
             case 1:
                 imageView.image = UIImage(named: "moreApps")
             default:
-                imageView.image = UIImage(named: "image1")
+                imageView.image = UIImage(named: "image1")// Replace with no image
                 
             }
         default:
-            imageView.image = UIImage(named: "image1")
+            imageView.image = UIImage(named: "image1")// Replace with no image
         }
         
         // Setup the constraints
