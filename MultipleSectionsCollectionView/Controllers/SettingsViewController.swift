@@ -171,16 +171,13 @@ class SettingsViewController: UITableViewController {
         // Setup the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        // Setup the image
-        let imageName = "image1"
-        let image1 = UIImage(named: imageName)
+        // Set the row hieght
         tableView.rowHeight = 60
         
         // Setup the view container
         let viewContainer = UIView()
-        viewContainer.backgroundColor = UIColor.red
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
-        cell.addSubview(viewContainer)
+        
         
         // Setup the label
         let labelText = UILabel()
@@ -190,11 +187,56 @@ class SettingsViewController: UITableViewController {
         
         // Setup the imageView
         let imageView = UIImageView(frame: CGRect(x: 20, y: 5, width: 50, height: 50))
-        imageView.layer.borderWidth = 1.0
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 25// Corner radius should be half of the height and width.
-        imageView.image = image1
+        
+        // Add elements to the subviews
+        cell.addSubview(viewContainer)
         viewContainer.addSubview(imageView)
+        
+        switch indexPath.section {
+            
+        case 0:
+            switch indexPath.row {
+            case 0 :
+                imageView.image = UIImage(named: "dollar")
+            case 1:
+                imageView.image = UIImage(named: "restore")
+            default:
+                imageView.image = UIImage(named: "image1")
+            }
+            
+        case 1:
+            switch indexPath.row {
+            case 0:
+                imageView.image = UIImage(named: "feedback")
+            case 1:
+                imageView.image = UIImage(named: "review")
+            default:
+                imageView.image = UIImage(named: "image1")
+                
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                imageView.image = UIImage(named: "message")
+            case 1:
+                imageView.image = UIImage(named: "mail")
+            default:
+                imageView.image = UIImage(named: "image1")
+                
+            }
+        case 3:
+            switch indexPath.row {
+            case 0:
+                imageView.image = UIImage(named: "moreActions")
+            case 1:
+                imageView.image = UIImage(named: "moreApps")
+            default:
+                imageView.image = UIImage(named: "image1")
+                
+            }
+        default:
+            imageView.image = UIImage(named: "image1")
+        }
         
         // Setup the constraints
         viewContainer.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
