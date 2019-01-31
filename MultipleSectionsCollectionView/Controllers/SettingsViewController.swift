@@ -206,4 +206,6 @@ class SettingsViewController: UITableViewController {
         
     }
     
+    //TODO add cells that have actions based on what cell.
+    
 } // End class
