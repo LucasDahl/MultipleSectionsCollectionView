@@ -190,7 +190,7 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // TODO: add the action for each cell
+        // TODO: add the action for each cell need a method with a switch statment.
         
     }
     
