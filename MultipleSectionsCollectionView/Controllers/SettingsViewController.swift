@@ -192,66 +192,83 @@ class SettingsViewController: UITableViewController {
         cell.addSubview(viewContainer)
         viewContainer.addSubview(imageView)
         
-        switch indexPath.section {
-            
-        case 0:
-            switch indexPath.row {
-            case 0 :
-                imageView.image = UIImage(named: "dollar")
-            case 1:
-                imageView.image = UIImage(named: "restore")
-            default:
-                imageView.image = UIImage(named: "image1")// Replace with no image
-            }
-            
-        case 1:
-            switch indexPath.row {
-            case 0:
-                imageView.image = UIImage(named: "feedback")
-            case 1:
-                imageView.image = UIImage(named: "review")
-            default:
-                imageView.image = UIImage(named: "image1")// Replace with no image
-                
-            }
-        case 2:
-            switch indexPath.row {
-            case 0:
-                imageView.image = UIImage(named: "message")
-            case 1:
-                imageView.image = UIImage(named: "mail")
-            default:
-                imageView.image = UIImage(named: "image1")// Replace with no image
-                
-            }
-        case 3:
-            switch indexPath.row {
-            case 0:
-                imageView.image = UIImage(named: "moreActions")
-            case 1:
-                imageView.image = UIImage(named: "moreApps")
-            default:
-                imageView.image = UIImage(named: "image1")// Replace with no image
-                
-            }
-        default:
-            imageView.image = UIImage(named: "image1")// Replace with no image
-        }
         
-        // Setup the constraints
-        viewContainer.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
-        viewContainer.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-        viewContainer.heightAnchor.constraint(equalTo: cell.heightAnchor).isActive = true
-        viewContainer.widthAnchor.constraint(equalTo: cell.widthAnchor).isActive = true
-        labelText.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor, constant: 25).isActive = true
-        labelText.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
-        labelText.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: labelText.leadingAnchor, constant: -35).isActive = true
+        // Cell methods for cell setup
+        setupConstraints(tableCell: cell, container: viewContainer, text: labelText, image: imageView)
+        setupCellImage(image: imageView, indexPath: indexPath)
         
         return cell
         
     }
     
-    //TODO add cells that have actions based on what cell.
+    //================
+    // MARK: - Methods
+    //================
+    
+    // Constraints
+    func setupConstraints(tableCell: UITableViewCell, container: UIView, text: UILabel, image: UIImageView) {
+        
+        // Setup all the constraints for the cell
+        container.centerXAnchor.constraint(equalTo: tableCell.centerXAnchor).isActive = true
+        container.centerYAnchor.constraint(equalTo: tableCell.centerYAnchor).isActive = true
+        container.heightAnchor.constraint(equalTo: tableCell.heightAnchor).isActive = true
+        container.widthAnchor.constraint(equalTo: tableCell.widthAnchor).isActive = true
+        text.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: 25).isActive = true
+        text.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        text.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        image.centerXAnchor.constraint(equalTo: text.leadingAnchor, constant: -35).isActive = true
+        
+    }
+    
+    // Cell setup
+    func setupCellImage(image: UIImageView, indexPath: IndexPath) {
+        
+        switch indexPath.section {
+            
+        case 0:
+            switch indexPath.row {
+            case 0 :
+                image.image = UIImage(named: "dollar")
+            case 1:
+                image.image = UIImage(named: "restore")
+            default:
+                image.image = UIImage(named: "image1")// Replace with no image
+            }
+            
+        case 1:
+            switch indexPath.row {
+            case 0:
+                image.image = UIImage(named: "feedback")
+            case 1:
+                image.image = UIImage(named: "review")
+            default:
+                image.image = UIImage(named: "image1")// Replace with no image
+                
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                image.image = UIImage(named: "message")
+            case 1:
+                image.image = UIImage(named: "mail")
+            default:
+                image.image = UIImage(named: "image1")// Replace with no image
+                
+            }
+        case 3:
+            switch indexPath.row {
+            case 0:
+                image.image = UIImage(named: "moreActions")
+            case 1:
+                image.image = UIImage(named: "moreApps")
+            default:
+                image.image = UIImage(named: "image1")// Replace with no image
+                
+            }
+        default:
+            image.image = UIImage(named: "image1")// Replace with no image
+        }
+        
+    }
     
 } // End class
