@@ -16,7 +16,7 @@ class SettingsViewController: UITableViewController {
     
     let cellId = "cellId12345"
     let twoDimensionalArray = [
-        ["Purchase to Remove adds", "Restore Purchases", "test"],
+        ["Purchase to Remove adds", "Restore Purchases"],
         ["FeedBack", "Write a Review"],
         ["Message", "Email"],
         ["More Share Options", "More Apps"]
@@ -27,16 +27,6 @@ class SettingsViewController: UITableViewController {
     // MARK: - UI Elements
     //====================
     
-    let settingsButton: UIButton = {
-        
-        let button = UIButton(type: .system)
-        button.setTitle("Settings", for: UIControl.State())
-        button.setTitleColor(UIColor.black, for: UIControl.State())
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleAlert), for: .touchUpInside)
-        return button
-        
-    }()
     
     let dismissButton: UIButton = {
        
