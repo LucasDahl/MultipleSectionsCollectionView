@@ -207,7 +207,7 @@ class SettingsViewController: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                handleEmailSend(recipient: "me@gmail", messageBody: "Hello")// Must be ran on an actual device
+                handleEmailSend(recipient: "me@gmail.com", messageBody: "Hello")// Must be ran on an actual device
             case 1:
                 print("11")
             default:
