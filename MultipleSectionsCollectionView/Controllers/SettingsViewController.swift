@@ -19,14 +19,13 @@ class SettingsViewController: UITableViewController {
         ["Purchase to Remove adds", "Restore Purchases"],
         ["FeedBack", "Write a Review"],
         ["Message", "Email"],
-        ["More Share Options", "More Apps"]
+        ["More Share Options", "How to get the most out of this app!"]
     ]
     
     
     //====================
     // MARK: - UI Elements
     //====================
-    
     
     let dismissButton: UIButton = {
        
@@ -186,6 +185,12 @@ class SettingsViewController: UITableViewController {
         setupCellImage(image: imageView, indexPath: indexPath)
         
         return cell
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // TODO: add the action for each cell
         
     }
     
