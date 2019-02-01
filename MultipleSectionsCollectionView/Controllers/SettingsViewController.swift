@@ -191,6 +191,51 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // TODO: add the action for each cell need a method with a switch statment.
+        switch indexPath.section {
+            
+        case 0:
+            switch indexPath.row {
+            case 0 :
+                print("0")
+            case 1:
+                print("1")
+            default:
+                print("d")
+            }
+            
+        case 1:
+            switch indexPath.row {
+            case 0:
+                print("00")
+            case 1:
+                print("11")
+            default:
+                print("dd")
+                
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                print("000")
+            case 1:
+                print("111")
+            default:
+                print("ddd")
+                
+            }
+        case 3:
+            switch indexPath.row {
+            case 0:
+                print("0000")
+            case 1:
+                handleAlert()
+            default:
+                print("dddd")
+                
+            }
+        default:
+            print("md")
+        }
         
     }
     
