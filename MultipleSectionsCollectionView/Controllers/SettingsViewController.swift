@@ -16,7 +16,7 @@ class SettingsViewController: UITableViewController {
     
     let cellId = "cellId12345"
     let twoDimensionalArray = [
-        ["Purchase to Remove adds", "Restore Purchases"],
+        ["Purchase to Remove adds", "Restore Purchases", "test"],
         ["FeedBack", "Write a Review"],
         ["Message", "Email"],
         ["More Share Options", "More Apps"]
@@ -230,7 +230,8 @@ class SettingsViewController: UITableViewController {
             case 1:
                 image.image = UIImage(named: "restore")
             default:
-                image.image = UIImage(named: "image1")// Replace with no image
+                image.image = UIImage(named: "noImage")
+                image.alpha = 0
             }
             
         case 1:
@@ -240,7 +241,8 @@ class SettingsViewController: UITableViewController {
             case 1:
                 image.image = UIImage(named: "review")
             default:
-                image.image = UIImage(named: "image1")// Replace with no image
+                image.image = UIImage(named: "image1")
+                image.alpha = 0
                 
             }
         case 2:
@@ -250,7 +252,8 @@ class SettingsViewController: UITableViewController {
             case 1:
                 image.image = UIImage(named: "mail")
             default:
-                image.image = UIImage(named: "image1")// Replace with no image
+                image.image = UIImage(named: "noImage")
+                image.alpha = 0
                 
             }
         case 3:
@@ -260,11 +263,13 @@ class SettingsViewController: UITableViewController {
             case 1:
                 image.image = UIImage(named: "moreApps")
             default:
-                image.image = UIImage(named: "image1")// Replace with no image
+                image.image = UIImage(named: "noImage")
+                image.alpha = 0
                 
             }
         default:
-            image.image = UIImage(named: "image1")// Replace with no image
+            image.image = UIImage(named: "noImage")
+            image.alpha = 0
         }
         
     }
