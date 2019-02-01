@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsViewController: UITableViewController {
     
@@ -206,7 +207,7 @@ class SettingsViewController: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                print("00")
+                handleEmailSend(recipient: "me@gmail", messageBody: "Hello")// Must be ran on an actual device
             case 1:
                 print("11")
             default:
@@ -314,4 +315,54 @@ class SettingsViewController: UITableViewController {
         
     }
     
+    func handleEmailSend(recipient: String, messageBody: String) {
+        
+        guard MFMailComposeViewController.canSendMail() else {
+            
+            //TODO: Add alert to show the user the mail didn't send
+            return
+            
+        }
+        
+        // Setup the composer controller
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients([recipient])
+        composer.setSubject(messageBody)
+        composer.setMessageBody("I love swift", isHTML: false)
+        
+        // Present the mail composer
+        present(composer, animated: true)
+        
+    }
+    
 } // End class
+
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    
+    // Allow the user to dismiss the mail composer
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+
+        if let _ = error {
+            // Show error
+            controller.dismiss(animated: true)
+
+            switch result {
+            case .cancelled:
+                print("Cancelled")
+            case .failed:
+                print("Failed to send")
+            case .saved:
+                print("Saved")
+            case .sent:
+                print("Email Sent")
+            }
+
+        }
+
+        controller.dismiss(animated: true)
+
+    }
+    
+}
