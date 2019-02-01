@@ -218,7 +218,7 @@ class SettingsViewController: UITableViewController {
         
     }
     
-    // Cell setup
+    // Setup the Image
     func setupCellImage(image: UIImageView, indexPath: IndexPath) {
         
         switch indexPath.section {
