@@ -161,18 +161,16 @@ class SettingsViewController: UITableViewController {
     // Sets the number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        // Return the number of sections based on the 2D array
         return twoDimensionalArray[section].count
         
     }
     
     // Sets the tableView data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO style the cell, may need a custom cell class
+        
         // Setup the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        
-        // Set the row hieght
-        tableView.rowHeight = 60
         
         // Setup the view container
         let viewContainer = UIView()
@@ -182,15 +180,15 @@ class SettingsViewController: UITableViewController {
         // Setup the label
         let labelText = UILabel()
         labelText.translatesAutoresizingMaskIntoConstraints = false
-        viewContainer.addSubview(labelText)
         labelText.text = twoDimensionalArray[indexPath.section][indexPath.row]
         
         // Setup the imageView
-        let imageView = UIImageView(frame: CGRect(x: 20, y: 5, width: 50, height: 50))
+        let imageView = UIImageView(frame: CGRect(x: 20, y: 5, width: 25, height: 25))
         
         // Add elements to the subviews
         cell.addSubview(viewContainer)
         viewContainer.addSubview(imageView)
+        viewContainer.addSubview(labelText)
         
         
         // Cell methods for cell setup
