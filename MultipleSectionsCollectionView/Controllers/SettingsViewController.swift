@@ -201,7 +201,7 @@ class SettingsViewController: UITableViewController {
             case 1:
                 print("1")
             default:
-                print("d")
+                print("All cases fell through.")
             }
             
         case 1:
@@ -211,7 +211,7 @@ class SettingsViewController: UITableViewController {
             case 1:
                 print("11")
             default:
-                print("dd")
+                print("All cases fell through.")
                 
             }
         case 2:
@@ -221,7 +221,7 @@ class SettingsViewController: UITableViewController {
             case 1:
                 handleEmailSend(recipient: "", messageBody: "Check out this great app!")// Must be ran on an actual device
             default:
-                print("ddd")
+                print("All cases fell through.")
                 
             }
         case 3:
@@ -237,11 +237,11 @@ class SettingsViewController: UITableViewController {
             case 1:
                 handleAlert()
             default:
-                print("dddd")
+                print("All cases fell through.")
                 
             }
         default:
-            print("md")
+            print("All cases fell through.")
         }
         
     }
