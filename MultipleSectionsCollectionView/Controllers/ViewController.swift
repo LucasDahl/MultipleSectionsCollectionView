@@ -191,6 +191,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         case 8:
             present(BlackViewController(), animated: true, completion: nil)
         default:
+            print("All cases fell through.")
             return
             
         }
