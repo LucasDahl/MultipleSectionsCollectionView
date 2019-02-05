@@ -219,7 +219,7 @@ class SettingsViewController: UITableViewController {
             case 0:
                 print("000")
             case 1:
-                print("111")
+                handleEmailSend(recipient: "", messageBody: "Check out this great app!")// Must be ran on an actual device
             default:
                 print("ddd")
                 
