@@ -106,7 +106,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         // Add the stackview to the subview
         view.addSubview(settingsButton)
         settingsButton.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        settingsButton.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true// TODO:  find out what warining is for iphon 8 and 8 plus
+        settingsButton.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
         settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         settingsButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
