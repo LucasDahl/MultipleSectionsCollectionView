@@ -105,6 +105,8 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
 
         // Add the stackview to the subview
         view.addSubview(settingsButton)
+        
+        // Set the constraints
         settingsButton.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         settingsButton.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
         settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
