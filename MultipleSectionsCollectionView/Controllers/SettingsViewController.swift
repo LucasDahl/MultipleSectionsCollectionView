@@ -197,9 +197,9 @@ class SettingsViewController: UITableViewController {
         case 0:
             switch indexPath.row {
             case 0 :
-                print("0")
+                print("Buy the app to remove adds")
             case 1:
-                print("1")
+                print("Restore purchase")
             default:
                 print("All cases fell through.")
             }
@@ -209,7 +209,7 @@ class SettingsViewController: UITableViewController {
             case 0:
                 handleEmailSend(recipient: "Feedback@gmail.com", messageBody: "Hello")// Must be ran on an actual device
             case 1:
-                print("11")
+                print("Write a review")
             default:
                 print("All cases fell through.")
                 
@@ -217,7 +217,7 @@ class SettingsViewController: UITableViewController {
         case 2:
             switch indexPath.row {
             case 0:
-                print("000")
+                print("Text the app to a friend")
             case 1:
                 handleEmailSend(recipient: "", messageBody: "Check out this great app!")// Must be ran on an actual device
             default:
