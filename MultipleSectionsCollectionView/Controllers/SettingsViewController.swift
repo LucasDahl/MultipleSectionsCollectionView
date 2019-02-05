@@ -227,7 +227,13 @@ class SettingsViewController: UITableViewController {
         case 3:
             switch indexPath.row {
             case 0:
-                print("0000")
+                
+                // Make the activity controller
+                let activityController = UIActivityViewController(activityItems: ["I recommend this app!"], applicationActivities: nil)
+                
+                // Prresent the controller
+                present(activityController, animated: true, completion: nil)
+                
             case 1:
                 handleAlert()
             default:
