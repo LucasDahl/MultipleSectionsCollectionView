@@ -87,7 +87,25 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        
+        // To switch between controllers that ideal would need to be paid for
+        switch indexPath.row {
+            
+        case 0:
+            print(0)
+        case 1:
+            print(1)
+        case 2:
+            print(2)
+        case 3:
+            print(3)
+        case 4:
+            print(4)
+        default:
+            print("Fell through")
+            return
+        }
+        
     }
     
     private class IconsCell: UICollectionViewCell {

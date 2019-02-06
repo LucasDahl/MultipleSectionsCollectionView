@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95040A46220B7A9200C050A2 /* BrownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95040A45220B7A9200C050A2 /* BrownViewController.swift */; };
 		956F907421F90B16000A0E67 /* redViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F907321F90B16000A0E67 /* redViewController.swift */; };
 		956F907721F90C95000A0E67 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F907621F90C95000A0E67 /* ImageCell.swift */; };
 		956F907921F90CEF000A0E67 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F907821F90CEF000A0E67 /* AlbumCell.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		95040A45220B7A9200C050A2 /* BrownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrownViewController.swift; sourceTree = "<group>"; };
 		956F907321F90B16000A0E67 /* redViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redViewController.swift; sourceTree = "<group>"; };
 		956F907621F90C95000A0E67 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		956F907821F90CEF000A0E67 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		95040A42220B77FF00C050A2 /* Premium Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95040A45220B7A9200C050A2 /* BrownViewController.swift */,
 			);
 			path = "Premium Controller";
 			sourceTree = "<group>";
@@ -71,10 +74,20 @@
 		95040A43220B782400C050A2 /* UI Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				95040A44220B79FE00C050A2 /* Control */,
 				95040A42220B77FF00C050A2 /* Premium Controller */,
 				95D9A96E21F7ADAB00E244AB /* Basic Controllers */,
 			);
 			path = "UI Controllers";
+			sourceTree = "<group>";
+		};
+		95040A44220B79FE00C050A2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				95C4E3A421F60F1A0022EB24 /* ViewController.swift */,
+				956F907B21FA0AAD000A0E67 /* SettingsViewController.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 		956F907521F90C6E000A0E67 /* Cell */ = {
@@ -128,7 +141,6 @@
 		95D9A96E21F7ADAB00E244AB /* Basic Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				95C4E3A421F60F1A0022EB24 /* ViewController.swift */,
 				956F907321F90B16000A0E67 /* redViewController.swift */,
 				95D9A97321F7AE4300E244AB /* OrangeViewController.swift */,
 				95D9A97121F7AE0A00E244AB /* YellowViewController.swift */,
@@ -138,7 +150,6 @@
 				95D9A97921F7AED100E244AB /* LightGrayViewController.swift */,
 				95D9A97D21F7AF8A00E244AB /* GrayViewController.swift */,
 				95D9A97B21F7AF1200E244AB /* BlackViewController.swift */,
-				956F907B21FA0AAD000A0E67 /* SettingsViewController.swift */,
 			);
 			path = "Basic Controllers";
 			sourceTree = "<group>";
@@ -225,6 +236,7 @@
 				956F907C21FA0AAD000A0E67 /* SettingsViewController.swift in Sources */,
 				95C4E3A321F60F1A0022EB24 /* AppDelegate.swift in Sources */,
 				95D9A97221F7AE0A00E244AB /* YellowViewController.swift in Sources */,
+				95040A46220B7A9200C050A2 /* BrownViewController.swift in Sources */,
 				95D9A97E21F7AF8A00E244AB /* GrayViewController.swift in Sources */,
 				95D9A97421F7AE4300E244AB /* OrangeViewController.swift in Sources */,
 				95D9A97021F7ADD800E244AB /* GreenViewController.swift in Sources */,
