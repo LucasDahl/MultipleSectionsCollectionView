@@ -100,13 +100,29 @@
 			children = (
 				956F907A21F90F30000A0E67 /* AppDelegate and Ext */,
 				956F907521F90C6E000A0E67 /* Cell */,
-				95D9A96E21F7ADAB00E244AB /* Controllers */,
+				95CF66EF220B2F9200988446 /* UI */,
 				95C4E3A621F60F1A0022EB24 /* Main.storyboard */,
 				95C4E3A921F60F1B0022EB24 /* Assets.xcassets */,
 				95C4E3AB21F60F1B0022EB24 /* LaunchScreen.storyboard */,
 				95C4E3AE21F60F1B0022EB24 /* Info.plist */,
 			);
 			path = MultipleSectionsCollectionView;
+			sourceTree = "<group>";
+		};
+		95CF66EE220B2F7A00988446 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		95CF66EF220B2F9200988446 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				95D9A96E21F7ADAB00E244AB /* Controllers */,
+				95CF66EE220B2F7A00988446 /* Scenes */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		95D9A96E21F7ADAB00E244AB /* Controllers */ = {
