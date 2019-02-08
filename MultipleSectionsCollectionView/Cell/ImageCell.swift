@@ -89,6 +89,7 @@ class ImageCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // To switch between controllers that ideal would need to be paid for
+        // TODO need to move or find a way to present VC's
         switch indexPath.row {
             
         case 0:
