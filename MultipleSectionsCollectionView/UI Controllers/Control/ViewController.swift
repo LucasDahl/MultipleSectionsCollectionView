@@ -172,7 +172,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         
         // A switch case will help each viewController deinit to avoide retain cycles.
         switch indexPath.row {
-            
+
         case 0:
             present(RedViewController(), animated: true, completion: nil)
         case 1:
@@ -194,7 +194,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         default:
             print("All cases fell through.")
             return
-            
+
         }
         
     }
